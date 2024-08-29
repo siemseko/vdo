@@ -1,23 +1,18 @@
+// Import the Express module
 const express = require('express');
+
+// Create an instance of an Express application
 const app = express();
+
+// Define the port number
 const port = 7100;
 
-// Middleware to parse JSON request bodies
-app.use(express.json());
-
-// Serve static files from the uploads directory
-app.use('/uploads', express.static('uploads'));
+// Define a route handler for the root URL ('/')
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
-// Routes
-const productRoutes = require('./routes/productRoutes');
-const authRoutes = require('./routes/authRoutes');
-const videoRoutes = require('./routes/videoRoutes');
-app.use('/api/v1', productRoutes);
-app.use('/api/v1/auth', authRoutes);
-app.use('/api', videoRoutes);
 
+// Start the server and listen on the specified port
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
