@@ -7,6 +7,9 @@ app.use(express.json());
 
 // Serve static files from the uploads directory
 app.use('/uploads', express.static('uploads'));
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
 // Routes
 const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/authRoutes');
